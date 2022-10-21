@@ -37,5 +37,16 @@ async function save(){
         console.log(err);
     }
 }
-
-save()
+save();
+function getById(idToFind){
+     productos.find((p)=> p.id === idToFind);
+/*     try{
+        await
+        if(err){
+            console.log('No lo pude buscar');
+        }else {
+            console.log('Lo encontre');
+        }
+    } */
+};
+console.log(getById(2));

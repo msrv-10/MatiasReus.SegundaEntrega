@@ -7,24 +7,35 @@ fs.writeFile('./productos.txt', 'Aca estan los productos\n', error => {
     }
 })
 
-
-class Contenedor{
-    constructor(nombre,precio,thumbnail){
-        this.nombre=nombre,
-        this.precio=precio,
-        this.thumbnail=thumbnail
+class Producto{
+    constructor(nombre, precio, thumbnail){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.thumbnail = thumbnail;
     }
-}
-const user1 = new Contenedor('Martillo', 2500, './martillo.png')
-const user2 = new Contenedor('Espatula', 1500, './Espatula.png')
-const user3 = new Contenedor('Destornillador', 1000, './Destornillador.png')
 
-console.log(user1);
-async function save(usuario){
+}
+const productos = [];
+productos.push(new Producto('Martillo', 2500, './Martillo.png'));
+productos.push(new Producto('Espatula', 1500, './Espatula.png'));
+productos.push(new Producto('Destornillador', 1000, './Destornillador.png'));
+
+async function save(){
     try{
-        await ();
+        await productos.forEach((item, i) => {
+            item.id = i + 1;
+        });
+        await fs.appendFile('./productos.txt', `${JSON.stringify(productos)}`, (err) =>{
+            if(err){
+                console.log('no pude grabar');
+            }else{
+                console.log('termino bien');
+            }
+        })
     }
     catch(err){
         console.log(err);
     }
 }
+
+save()

@@ -37,12 +37,9 @@ async function save(){
     }
 }
 save();
-setTimeout(()=>{
-    function getById(idToFind){
-    productos.find((p)=> p.id === idToFind);
-};
-console.log(getById(1));
-}, 2000)
+
+const object = productos.find(obj =>obj.id === 2)
+console.log(object);
 
 /*async function getById(idToFind){
     try{

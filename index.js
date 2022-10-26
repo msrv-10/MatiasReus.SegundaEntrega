@@ -14,51 +14,43 @@ class Producto{
         this.thumbnail = thumbnail;
     }
     
+     save(){
+        try{
+            productos.forEach((item, i) => {
+                item.id = i + 1;
+            });
+             fs.appendFile('./productos.txt', `${JSON.stringify(productos)}`, (err) =>{
+                if(err){
+                    console.log('no pude grabar');
+                }else{
+                    console.log('termino bien');
+                }
+            })
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+    getData() {
+        try {
+            const data = fs.promises.readFile('./productos.txt',  'utf-8')
+            console.log(data);
+        }
+        catch(err){
+            console.log('error de lectura', err);
+        }
+    }
+    getById() {
+        const object = productos.find(obj =>obj.id === 2)
+    }
 }
 const productos = [];
 productos.push(new Producto('Martillo', 2500, './Martillo.png'));
 productos.push(new Producto('Espatula', 1500, './Espatula.png'));
 productos.push(new Producto('Destornillador', 1000, './Destornillador.png'));
-async function save(){
-    try{
-        productos.forEach((item, i) => {
-            item.id = i + 1;
-        });
-        await fs.appendFile('./productos.txt', `${JSON.stringify(productos)}`, (err) =>{
-            if(err){
-                console.log('no pude grabar');
-            }else{
-                console.log('termino bien');
-            }
-        })
-    }
-    catch(err){
-        console.log(err);
-    }
-}
 save();
+getById();
+getData();
 
-const object = productos.find(obj =>obj.id === 2)
-console.log(object);
 
-/*async function getById(idToFind){
-    try{
-        productos.find((p)=> p.id === idToFind);
-        await
-        if(err){
-            console.log('No lo pude buscar');
-        }else {
-            console.log('Lo encontre');
-        }
-    } */
 
-async  function getData() {
-    try {
-        const data = await fs.promises.readFile('./productos.txt',  'utf-8')
-        console.log(data);
-    }
-    catch(err){
-        console.log('error de lectura', err);
-    }
-}
-getData()

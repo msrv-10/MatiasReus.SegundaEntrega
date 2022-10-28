@@ -2,5 +2,23 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.20"
-  }
+  },
+  "name": "matiasreus.segundaentrega",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msrv-10/MatiasReus.SegundaEntrega.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msrv-10/MatiasReus.SegundaEntrega/issues"
+  },
+  "homepage": "https://github.com/msrv-10/MatiasReus.SegundaEntrega#readme",
+  "description": ""
 }

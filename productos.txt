@@ -1,2 +1,0 @@
-Aca estan los productos
-[{"nombre":"Martillo","precio":2500,"thumbnail":"./Martillo.png","id":1},{"nombre":"Espatula","precio":1500,"thumbnail":"./Espatula.png","id":2},{"nombre":"Destornillador","precio":1000,"thumbnail":"./Destornillador.png","id":3}]

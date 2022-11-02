@@ -7,6 +7,7 @@ fs.writeFile('./productos.txt', 'Aca estan los productos\n', error => {
     }
 })
 
+
 class Producto{
     constructor(nombre, precio, thumbnail){
         this.nombre = nombre;
@@ -45,13 +46,14 @@ class Producto{
     }
 }
 const productos = [];
-productos.push(new Producto('Martillo', 2500, './Martillo.png'));
-productos.push(new Producto('Espatula', 1500, './Espatula.png'));
-productos.push(new Producto('Destornillador', 1000, './Destornillador.png'));
-save();
-getById();
-getData();
-
+let martillo = new Producto('Martillo', 2500, './Martillo.png');
+let espatula = new Producto('Espatula', 1500, './Espatula.png');
+let destornillador =new Producto('Destornillador', 1000, './Destornillador.png');
+productos.push(martillo, espatula, destornillador);
+//save();
+//getById();
+//getData();
+console.log(productos.length);
 const express = require('express');
 const { json } = require('body-parser');
 const app = express()
